@@ -10,7 +10,8 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Load utils
-source ./utils.sh
+SCRIPT_DIR="$(cd -- "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+source "$SCRIPT_DIR/utils.sh"
 
 # Configuration
 REPO="USST-JavaWeb-251-AdFlux/AdFlux-Tracker"
