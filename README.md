@@ -73,7 +73,7 @@ AdFlux 系统由以下三个核心模块组成：
 2. **配置参数**：
    编辑各脚本顶部的 `Configuration` 区域，根据实际环境修改 `TARGET_DIR`、`LOG_FILE` 等路径。
 3. **后端配置**：
-   在后端目标目录下放置 `application.yml` 或 `application-prod.yml` 配置文件。
+   在后端目标目录下放置 `application.yml` 或 `application-prod.yml` 配置文件。配置项请参照 [后端仓库](https://github.com/USST-JavaWeb-251-AdFlux/AdFlux-Backend) 的 README。
 4. **执行部署**：
     ```bash
     chmod +x *.sh
@@ -85,5 +85,6 @@ AdFlux 系统由以下三个核心模块组成：
 ## 5. 注意事项
 
 -   **权限要求**：脚本会自动尝试获取 `sudo` 权限，请确保当前用户在 sudoers 列表中，或使用 root 进行操作。
+-   **日志路径**：后端的日志默认位于 `/var/log/AdFlux/app.log`，每次重启后端服务后会清空重新生成。
 -   **配置验证**：脚本目前较为精简，未对配置项进行严格验证。在执行前请务必确认路径及参数正确，以免造成**不可逆的严重后果**。
 -   **网络环境**：脚本使用 `ghfast.top` 作为 GitHub 下载加速镜像，如有需要可修改 [utils.sh](utils.sh) 中的下载逻辑。
