@@ -21,7 +21,11 @@ SCREEN_NAME="AdFlux"
 LOG_FILE="/var/log/AdFlux/app.log"
 
 # 1. Download
-download_latest_release "$REPO" "$JAR_FILE"
+if [ ! -f "$JAR_FILE" ]; then
+    download_latest_release "$REPO" "$JAR_FILE"
+else
+    echo -e "\033[34m[Info]\033[0m $JAR_FILE already exists, skipping download."
+fi
 unzip -tq "$JAR_FILE"
 
 # 2. Cleanup & Stop Service

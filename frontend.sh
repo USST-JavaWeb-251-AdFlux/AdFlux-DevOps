@@ -19,7 +19,11 @@ TARGET_DIR="/var/www/AdFlux/frontend"
 ZIP_FILE="dist.zip"
 
 # 1. Download
-download_latest_release "$REPO" "$ZIP_FILE"
+if [ ! -f "$ZIP_FILE" ]; then
+    download_latest_release "$REPO" "$ZIP_FILE"
+else
+    echo -e "\033[34m[Info]\033[0m $ZIP_FILE already exists, skipping download."
+fi
 unzip -tq "$ZIP_FILE"
 
 # 2. Cleanup & Extract
